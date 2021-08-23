@@ -1,0 +1,125 @@
+html {
+  font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @include max-991{
+    font-size: 62.5% !important;
+  }
+}
+body {
+  font-size: 1.6rem;
+  font-family: $font-family-base;
+}
+a{
+  text-decoration: none;
+  &:hover, &:focus{
+    color: $primary;
+  }
+}
+.btn{
+  text-transform: uppercase;
+  background-color: $primary;
+  border: 1px solid $primary;
+  padding: 0.6rem 1.2em;
+  color: $white;;
+  outline: none;
+  font-size: 1.4rem;
+  letter-spacing: .24px;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  font-weight: 600;
+  &:hover, &:focus{
+    background-color: $secondary;
+    border-color: $secondary;
+    outline: none;
+    box-shadow: none;
+  }
+  &.btn-secondary{
+    background-color: $gray-500;
+    border-color: $gray-500;
+  }
+}
+.form-group{
+  margin-bottom: 1.2rem;
+  font-size: 1.4rem;
+  > label{
+    font-size: 1.2rem;
+  }
+}
+.form-control{
+  height: 3.4rem;
+  font-size: $font-family-base;
+  &.select{
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+  }
+}
+.form-select{
+  height: 3.4rem;
+}
+img {
+  max-width: 100%;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: $light-gray;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color:  $light-gray;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color:  $light-gray;
+}
+h1,h2 {
+  letter-spacing: $heading-spacing;
+}
+.display-1 {
+  line-height: 1.2;
+  background: $body-bg;
+  padding: 3rem 0;
+}
+@include max-1024 {
+  h1,.h1 {
+    font-size: 4rem;
+  }
+  .h2,h2 {
+    font-size: 4rem;
+  }
+  .title {
+    br {
+      display: none;
+    }
+  }
+}
+
+@include max-991 {
+  html {
+    font-size: 52.5%;
+  }
+  .display-1 {
+    padding:  0;
+  }
+}
+
+@include max-767 {
+  .display-1 {
+    font-size: 2.2rem;
+  }
+  .display-2 {
+    font-size: 2rem;
+    margin-bottom: $spacing-block-bottom-xs;
+  }
+  html {
+    font-size: 50%;
+  }
+  .h1,h1 {
+    font-size: 3.4rem;
+  }
+  .h2,h2 {
+    font-size: 3.4rem;
+  }
+}

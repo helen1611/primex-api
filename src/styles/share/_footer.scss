@@ -1,0 +1,17 @@
+.sticky-footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  padding-left: 279px;
+}
+.footer{
+  left: $width-sidebar;
+  padding: $spacing;
+  background-color: $gray-200;
+  font-size: $font-size-sm;
+  @include max-991{
+    left: $width-sidebar-mobile;
+  }
+}

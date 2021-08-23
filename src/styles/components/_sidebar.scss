@@ -1,0 +1,22 @@
+.sidebar-heading{
+  padding: 1.2rem 2.4rem;
+  font-size: 2rem;
+}
+.list-countries{
+  list-style-type: none;
+  padding: 0;
+  &__item{
+    display: block;
+    a{
+      margin-right: -1px;
+      padding: 1.2rem 2.4rem;
+      text-decoration: none;
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+      display: block;
+      cursor: pointer;
+      &:hover, &.active{
+        background-color: $white;;
+      }
+    }
+  }
+}

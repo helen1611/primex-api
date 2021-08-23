@@ -1,0 +1,11 @@
+.sticky-header{
+  background-color: $black;
+  min-height: 50px;
+  color: $white;
+  z-index: 1039;
+  padding: 0 $spacing;
+  a.navbar-brand{
+    color: $white;
+    font-size: 2rem;
+  }
+}
