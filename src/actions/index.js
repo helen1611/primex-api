@@ -12,7 +12,6 @@ export const fetchUsers = () => async (dispatch) => {
   const apiUrl = `${firebaseUrl}/users`;
   const response = await fetch(apiUrl);
   const data = await response.json();
-  console.log('response fetch user: ', data);
   const users = data.documents.map((doc) => {
     const id = doc.name.slice(doc.name.lastIndexOf("/") + 1);
     const user = {
@@ -44,7 +43,7 @@ export const fetchCountries = () => async (dispatch) => {
   const apiUrl = `${firebaseUrl}/countries`;
   const response = await fetch(apiUrl);
   const data = await response.json();
-  console.log('response fetch countries: ', data);
+  
   const countries = data.documents.map((doc) => {
     const id = doc.name.slice(doc.name.lastIndexOf("/") + 1);
     const country = {
@@ -53,6 +52,7 @@ export const fetchCountries = () => async (dispatch) => {
     for (const field in doc.fields) {
       country[field] = doc.fields[field].stringValue;
     }
+    
     return country;
   });
   dispatch({ type: FETCH_COUNTRIES, payload: countries });
@@ -74,7 +74,6 @@ export const fetchOrganisations = () => async (dispatch) => {
   const apiUrl = `${firebaseUrl}/organisations`;
   const response = await fetch(apiUrl);
   const data = await response.json();
-  console.log('response fetch organisations: ', data);
   const organisations = data.documents.map((doc) => {
     const id = doc.name.slice(doc.name.lastIndexOf("/") + 1);
     const organisation = {
@@ -89,22 +88,27 @@ export const fetchOrganisations = () => async (dispatch) => {
 };
 
 
-export const selectUsersByCountry = country => {
+export const fetchUsersByCountry = () => async (dispatch) => {
   const firebaseUrl = getFirebaseUrl();
-  // const apiUrl = `${firebaseUrl}/users`;
-  // const response = await fetch(apiUrl);
-  // const data = await response.json();
-  // console.log('response fetch user: ', data);
-  // const users = data.documents.map((doc) => {
-  //   const id = doc.name.slice(doc.name.lastIndexOf("/") + 1);
-  //   const user = {
-  //     id,
-  //   };
-  //   for (const field in doc.fields) {
-  //     user[field] = doc.fields[field].stringValue;
-  //   }
-  //   return user;
-  // });
-  // dispatch({ type: COUNTRY_SELECTED, payload: users });
+  const apiUrl = `${firebaseUrl}/users`;
+  const response = await fetch(apiUrl);
+  const data = await response.json();
+  
+  
+  const users = data.documents.map((doc) => {
+    const id = doc.name.slice(doc.name.lastIndexOf("/") + 1);
+    const user = {
+      id,
+    };
+    for (const field in doc.fields) {
+      user[field] = doc.fields[field].stringValue;
+    }
+    return user;
+  });
+  console.log('users:', users);
+  users.filter( user => user.country !== '3');
+  console.log('filter users:', users);
+  // console.log('Filter users:', users);
+  dispatch({ type: COUNTRY_SELECTED, payload: users });
   
 };

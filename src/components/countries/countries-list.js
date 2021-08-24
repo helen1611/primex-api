@@ -25,9 +25,7 @@ const CountriesList = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log('country state: ',state );
   return {
-    
     countries: state.countriesReducer.countries,
   };
 };

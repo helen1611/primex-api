@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { Button, Table } from "react-bootstrap";
-import { fetchUsers, fetchUsersByCountry } from "../../actions";
+import { fetchUsers } from "../../actions";
 import AddEditUser from "./add-edit-user";
 
 const UserList = (props) => {
@@ -10,7 +10,7 @@ const UserList = (props) => {
   const handleShow = () => setShow(true);
 
   useEffect(() => {
-    props.fetchUsersByCountry(props.users);
+    props.fetchUsers(props.users);
   }, []);
 
   return (
@@ -58,7 +58,7 @@ const UserList = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return { users: state.selectUserByCountryReducer.selectedUsers };
+  return { users: state.usersReducer.users };
 };
 
-export default connect(mapStateToProps, { fetchUsersByCountry })(UserList);
+export default connect(mapStateToProps, { fetchUsers })(UserList);
